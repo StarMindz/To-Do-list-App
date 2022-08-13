@@ -1,17 +1,17 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { mainModule } = require("process");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { mainModule } = require('process');
 
 module.exports = {
-  mode: "development",
-  entry: path.resolve(__dirname, "src/index.js"),
+  mode: 'development',
+  entry: path.resolve(__dirname, 'src/index.js'),
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "main.js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js',
   },
   devServer: {
     static: {
-      directory: path.resolve(__dirname, "dist"),
+      directory: path.resolve(__dirname, 'dist'),
     },
     port: 3000,
     open: true,
@@ -21,16 +21,16 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Webpack App",
-      filename: "index.html",
-      template: "src/index.html",
+      title: 'Webpack App',
+      filename: 'index.html',
+      template: 'src/index.html',
     }),
   ],
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
         exclude: /node_modules/,
       },
     ],
