@@ -33,9 +33,7 @@ i:hover {
   flex-direction: column;
   box-shadow: 0 0 20px;
   background-color: white;
-  width: 80%;
   margin: 0 auto;
-  margin-top: 5vw;
   max-width: 500px;
   max-height: 80vh;
   grid-auto-rows: auto;
@@ -53,7 +51,6 @@ i:hover {
   padding: 10px;
   margin-bottom: 10px;
   font-size: 12px;
-  display: flex;
   border-bottom: 1px solid rgba(128, 128, 128, 0.164);
 }
 
