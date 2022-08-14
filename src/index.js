@@ -1,4 +1,5 @@
 eslint.disable ['import/extensions']
+eslint.disable ['import/no-cycle']
 import './index.css';
 import tasksObject, { dataStore, retrieveStorage } from './modules/storage';
 import { editText } from './modules/tasks';
