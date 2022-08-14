@@ -28,7 +28,7 @@ class Tasks {
         `;
     const li = document.createElement('li');
     li.className = 'list-item';
-    li.setAttribute('id', '${index}_item');
+    li.setAttribute('id', `${index}_item`);
     li.innerHTML = html;
     tasks.appendChild(li);
     this.edit();
@@ -40,8 +40,8 @@ class Tasks {
     const buttons = document.querySelectorAll('.list_icons');
     buttons[buttons.length - 1].addEventListener('click', (e) => {
       const itemid = e.target.id.split('_')[0];
-      const trash = document.getElementById(itemid + '_delete');
-      const textInput = document.getElementById(itemid + '_text');
+      const trash = document.getElementById(`${itemid}_delete`);
+      const textInput = document.getElementById(`${itemid}_text`);
       trash.className = 'display fa-solid fa-trash-can';
       e.target.className = 'no-display list_icons fa-solid fa-ellipsis-vertical';
       textInput.disabled = false;
@@ -66,7 +66,7 @@ class Tasks {
     const checkers = document.querySelectorAll('.list_checkbox');
     checkers[checkers.length - 1].addEventListener('change', (e) => {
       const id = e.target.id.split('_')[0];
-      const text = document.getElementById('${id}_text');
+      const text = document.getElementById(`${id}_text`);
       if (text.style.textDecoration === 'line-through') {
         text.style.textDecoration = '';
       } else {
@@ -85,9 +85,9 @@ export const editText = () => {
 
   const changeValue = (e) => {
     const id = e.target.id.split('_')[0];
-    const text = document.getElementById(id + '_text');
+    const text = document.getElementById(`${id}_text`);
     if (e.key === 'Enter') {
-      tasksObject.taskList.map((element) => {
+      tasksObject.taskList.forEach((element) => {
         if (Number(id) === element.index) {
           element.description = text.value;
         }
@@ -103,6 +103,7 @@ export const editText = () => {
     }
   };
 
-  allTexts[allTexts.length - 1].addEventListener('keydown', (e) => changeValue(e))};
+  allTexts[allTexts.length - 1].addEventListener('keydown', (e) => changeValue(e));
+};
 
 export default Tasks;
