@@ -1,4 +1,4 @@
-import Tasks, { editText } from './tasks';
+import Tasks, { editText } from './tasks.js';
 
 const tasksObject = new Tasks();
 export default tasksObject;
@@ -13,7 +13,7 @@ const retrieveStorage = () => {
   const storage = JSON.parse(localStorage.getItem('data').split(','));
   document.addEventListener('DOMContentLoaded', () => {
     storage.forEach((element) => {
-      const { index, description, completed } = element;
+      const { description, completed } = element;
       tasksObject.addTask(description, completed);
       editText();
       tasksObject.counter += 1;

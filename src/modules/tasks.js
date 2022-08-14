@@ -1,7 +1,6 @@
-const tasks = document.getElementById('to-do-list');
 import tasksObject, { dataStore } from './storage.js';
 
-
+const tasks = document.getElementById('to-do-list');
 class Tasks {
   constructor() {
     this.taskList = [];
@@ -13,7 +12,7 @@ class Tasks {
     const taskItem = {};
     taskItem.index = this.counter;
     taskItem.description = description;
-    taskItem.completed = completed
+    taskItem.completed = completed;
     this.taskList.push(taskItem);
     this.display(this.counter, description, completed);
   }
@@ -29,8 +28,7 @@ class Tasks {
         `;
     const li = document.createElement('li');
     li.className = 'list-item';
-    const address = index + '_item'
-    li.setAttribute('id', address);
+    li.setAttribute('id', '${index}_item');
     li.innerHTML = html;
     tasks.appendChild(li);
     this.edit();
@@ -45,8 +43,7 @@ class Tasks {
       const trash = document.getElementById(itemid + '_delete');
       const textInput = document.getElementById(itemid + '_text');
       trash.className = 'display fa-solid fa-trash-can';
-      e.target.className =
-        'no-display list_icons fa-solid fa-ellipsis-vertical';
+      e.target.className = 'no-display list_icons fa-solid fa-ellipsis-vertical';
       textInput.disabled = false;
     });
   }
@@ -69,7 +66,7 @@ class Tasks {
     const checkers = document.querySelectorAll('.list_checkbox');
     checkers[checkers.length - 1].addEventListener('change', (e) => {
       const id = e.target.id.split('_')[0];
-      const text = document.getElementById(id + '_text');
+      const text = document.getElementById('${id}_text');
       if (text.style.textDecoration === 'line-through') {
         text.style.textDecoration = '';
       } else {
@@ -98,7 +95,7 @@ export const editText = () => {
       dataStore();
       tasks.innerHTML = '';
       tasksObject.taskList.forEach((element) => {
-        const { index, description, completed } = element;
+        const { index, description} = element;
         tasksObject.display(index, description);
         editText();
         tasksObject.counter += 1;
@@ -106,9 +103,6 @@ export const editText = () => {
     }
   };
 
-  allTexts[allTexts.length - 1].addEventListener('keydown', (e) =>
-    changeValue(e)
-  );
-};
+  allTexts[allTexts.length - 1].addEventListener('keydown', (e) => changeValue(e))};
 
 export default Tasks;
