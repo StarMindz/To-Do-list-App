@@ -1,6 +1,7 @@
 const tasks = document.getElementById('to-do-list');
 import tasksObject, { dataStore } from './storage';
 
+
 class Tasks {
   constructor() {
     this.taskList = [];
@@ -28,7 +29,8 @@ class Tasks {
         `;
     const li = document.createElement('li');
     li.className = 'list-item';
-    li.setAttribute('id', index + '_item');
+    const address = index + '_item'
+    li.setAttribute('id', address);
     li.innerHTML = html;
     tasks.appendChild(li);
     this.edit();
