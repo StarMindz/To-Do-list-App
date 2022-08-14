@@ -31,6 +31,10 @@ export const editText = () => {
   allTexts[allTexts.length - 1].addEventListener('keydown', (e) => changeValue(e));
 };
 
+const dataStore = () => {
+  localStorage.setItem('data', JSON.stringify(tasksObject.taskList));
+};
+
 // function for Local storage retrieval
 const retrieveStorage = () => {
   // Local Storage Retrieval
@@ -43,10 +47,6 @@ const retrieveStorage = () => {
       tasksObject.counter += 1;
     });
   });
-};
-
-const dataStore = () => {
-  localStorage.setItem('data', JSON.stringify(tasksObject.taskList));
 };
 
 export { dataStore, retrieveStorage };
