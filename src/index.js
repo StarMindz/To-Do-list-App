@@ -1,5 +1,6 @@
 import './index.css';
-import tasksObject, { dataStore } from './modules/storage';
+import tasksObject, { dataStore, retrieveStorage } from './modules/storage';
+import { editText } from './modules/tasks';
 
 const lists = document.getElementById('to-do-list');
 const text = document.getElementById('to-do-list-input');
@@ -12,12 +13,14 @@ addButton.addEventListener('click', () => {
   if (description !== '')
     {
       tasksObject.addTask(description);
+      editText();
       text.value = '';
       dataStore();
       tasksObject.counter += 1;
     }
 });
 
+retrieveStorage();
 // Create array of tasks objects
 // const toDoList = [];
 

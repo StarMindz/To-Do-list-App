@@ -77,6 +77,10 @@ input {
   font-size: 20px;
 }
 
+.input_text {
+  width: 400px;
+}
+
 .Add-to-do-list {
   display: flex;
   flex-direction: row;
@@ -107,6 +111,14 @@ input {
   width: 100%;
   justify-content: space-between;
   align-items: center;
+}
+
+.no-display {
+  display: none;
+}
+
+.display {
+  display: block;
 }
 
 @media (min-width: 780px) {
