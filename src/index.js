@@ -1,8 +1,6 @@
-eslint.disable ['import/extensions']
-eslint.disable ['import/no-cycle']
 import './index.css';
-import tasksObject, { dataStore, retrieveStorage } from './modules/storage';
-import { editText } from './modules/tasks';
+import tasksObject, { dataStore, retrieveStorage } from './modules/storage.js';
+import { editText } from './modules/tasks.js';
 
 const text = document.getElementById('to-do-list-input');
 const addButton = document.getElementById('add-button');
