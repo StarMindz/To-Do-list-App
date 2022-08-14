@@ -13,7 +13,7 @@ class Tasks {
     const taskItem = {};
     taskItem.index = this.counter;
     taskItem.description = description;
-    taskItem.completed = false;
+    taskItem.completed = completed
     this.taskList.push(taskItem);
     this.display(this.counter, description, completed);
   }
@@ -67,16 +67,13 @@ class Tasks {
 
   getCheckers() {
     const checkers = document.querySelectorAll('.list_checkbox');
-    let check = false;
     checkers[checkers.length - 1].addEventListener('change', (e) => {
       const id = e.target.id.split('_')[0];
       const text = document.getElementById(id + '_text');
       if (text.style.textDecoration === 'line-through') {
         text.style.textDecoration = '';
-        check = false;
       } else {
         text.style.textDecoration = 'line-through';
-        check = true;
       }
     });
   }

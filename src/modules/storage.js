@@ -13,7 +13,7 @@ const retrieveStorage = () => {
   const storage = JSON.parse(localStorage.getItem('data').split(','));
   document.addEventListener('DOMContentLoaded', () => {
     storage.forEach((element) => {
-      const { description, completed } = element;
+      const { index, description, completed } = element;
       tasksObject.addTask(description, completed);
       editText();
       tasksObject.counter += 1;
