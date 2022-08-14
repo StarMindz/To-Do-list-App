@@ -1,3 +1,4 @@
+eslint.disable ['import/extensions']
 import './index.css';
 import tasksObject, { dataStore, retrieveStorage } from './modules/storage';
 import { editText } from './modules/tasks';
