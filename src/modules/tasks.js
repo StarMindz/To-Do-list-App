@@ -37,7 +37,7 @@ class Tasks {
   edit() {
     const buttons = document.querySelectorAll('.list_icons');
     buttons[buttons.length - 1].addEventListener('click', (e) => {
-      const itemid = e.target.id.split('_')[0];\
+      const itemid = e.target.id.split('_')[0];
       this.itemid = itemid;
       const trash = document.getElementById(`${itemid}_delete`);
       const textInput = document.getElementById(`${itemid}_text`);
