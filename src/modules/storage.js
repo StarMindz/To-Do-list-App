@@ -4,25 +4,7 @@ const tasksObject = new Tasks();
 const tasks = document.getElementById('to-do-list');
 export default tasksObject;
 
-
-// function for Local storage retrieval
-const retrieveStorage = () => {
-  // Local Storage Retrieval
-  const storage = JSON.parse(localStorage.getItem('data').split(','));
-  document.addEventListener('DOMContentLoaded', () => {
-    storage.forEach((element) => {
-      const { description, completed } = element;
-      tasksObject.addTask(description, completed);
-      editText();
-      tasksObject.counter += 1;
-    });
-  });
-};
-
-const dataStore = () => {
-  localStorage.setItem('data', JSON.stringify(tasksObject.taskList));
-};
-
+// Funtion for editing tasks
 export const editText = () => {
   const allTexts = document.querySelectorAll('.input_text');
 
@@ -47,6 +29,24 @@ export const editText = () => {
   };
 
   allTexts[allTexts.length - 1].addEventListener('keydown', (e) => changeValue(e));
+};
+
+// function for Local storage retrieval
+const retrieveStorage = () => {
+  // Local Storage Retrieval
+  const storage = JSON.parse(localStorage.getItem('data').split(','));
+  document.addEventListener('DOMContentLoaded', () => {
+    storage.forEach((element) => {
+      const { description, completed } = element;
+      tasksObject.addTask(description, completed);
+      editText();
+      tasksObject.counter += 1;
+    });
+  });
+};
+
+const dataStore = () => {
+  localStorage.setItem('data', JSON.stringify(tasksObject.taskList));
 };
 
 export { dataStore, retrieveStorage };
