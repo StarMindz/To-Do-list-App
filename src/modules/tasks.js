@@ -39,9 +39,9 @@ class Tasks {
   edit() {
     const buttons = document.querySelectorAll('.list_icons');
     buttons[buttons.length - 1].addEventListener('click', (e) => {
-      const itemid = e.target.id.split('_')[0];
-      const trash = document.getElementById(`${itemid}_delete`);
-      const textInput = document.getElementById(`${itemid}_text`);
+      this.itemid = e.target.id.split('_')[0];
+      const trash = document.getElementById(`${this.itemid}_delete`);
+      const textInput = document.getElementById(`${this.itemid}_text`);
       trash.className = 'display fa-solid fa-trash-can';
       e.target.className = 'no-display list_icons fa-solid fa-ellipsis-vertical';
       textInput.disabled = false;
@@ -65,8 +65,8 @@ class Tasks {
   getCheckers() {
     const checkers = document.querySelectorAll('.list_checkbox');
     checkers[checkers.length - 1].addEventListener('change', (e) => {
-      const id = e.target.id.split('_')[0];
-      const text = document.getElementById(`${id}_text`);
+      this.id = e.target.id.split('_')[0];
+      const text = document.getElementById(`${this.id}_text`);
       if (text.style.textDecoration === 'line-through') {
         text.style.textDecoration = '';
       } else {
@@ -95,7 +95,7 @@ export const editText = () => {
       dataStore();
       tasks.innerHTML = '';
       tasksObject.taskList.forEach((element) => {
-        const { index, description} = element;
+        const { index, description } = element;
         tasksObject.display(index, description);
         editText();
         tasksObject.counter += 1;
