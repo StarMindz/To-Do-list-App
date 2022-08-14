@@ -4,6 +4,10 @@ const tasksObject = new Tasks();
 const tasks = document.getElementById('to-do-list');
 export default tasksObject;
 
+const dataStore = () => {
+  localStorage.setItem('data', JSON.stringify(tasksObject.taskList));
+};
+
 // Funtion for editing tasks
 export const editText = () => {
   const allTexts = document.querySelectorAll('.input_text');
@@ -29,10 +33,6 @@ export const editText = () => {
   };
 
   allTexts[allTexts.length - 1].addEventListener('keydown', (e) => changeValue(e));
-};
-
-const dataStore = () => {
-  localStorage.setItem('data', JSON.stringify(tasksObject.taskList));
 };
 
 // function for Local storage retrieval

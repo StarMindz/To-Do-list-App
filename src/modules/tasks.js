@@ -65,7 +65,7 @@ class Tasks {
     const checkers = document.querySelectorAll('.list_checkbox');
     checkers[checkers.length - 1].addEventListener('change', (e) => {
       const id = e.target.id.split('_')[0];
-      this.id =id;
+      this.id = id;
       const text = document.getElementById(`${id}_text`);
       if (text.style.textDecoration === 'line-through') {
         text.style.textDecoration = '';
