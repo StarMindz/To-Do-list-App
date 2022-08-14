@@ -1,5 +1,3 @@
-import tasksObject, { dataStore } from './storage.js';
-
 const tasks = document.getElementById('to-do-list');
 class Tasks {
   constructor() {
