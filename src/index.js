@@ -6,21 +6,20 @@ const lists = document.getElementById('to-do-list');
 const text = document.getElementById('to-do-list-input');
 const addButton = document.getElementById('add-button');
 
-
-
 addButton.addEventListener('click', () => {
   const description = text.value;
-  if (description !== '')
-    {
-      tasksObject.addTask(description);
-      editText();
-      text.value = '';
-      dataStore();
-      tasksObject.counter += 1;
-    }
+  if (description !== '') {
+    tasksObject.addTask(description);
+    editText();
+    text.value = '';
+    dataStore();
+    tasksObject.counter += 1;
+  }
 });
 
 retrieveStorage();
+
+document.getElementById('refresh');
 // Create array of tasks objects
 // const toDoList = [];
 
