@@ -1,6 +1,5 @@
 import './index.css';
-import tasksObject, { dataStore, retrieveStorage } from './modules/storage.js';
-import { editText } from './modules/tasks.js';
+import tasksObject, { dataStore, retrieveStorage, editText } from './modules/storage.js';
 
 const text = document.getElementById('to-do-list-input');
 const addButton = document.getElementById('add-button');

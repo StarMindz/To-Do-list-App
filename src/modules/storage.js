@@ -1,11 +1,9 @@
-import Tasks, { editText } from './tasks.js';
+import Tasks from './tasks.js';
 
 const tasksObject = new Tasks();
+const tasks = document.getElementById('to-do-list');
 export default tasksObject;
 
-const dataStore = () => {
-  localStorage.setItem('data', JSON.stringify(tasksObject.taskList));
-};
 
 // function for Local storage retrieval
 const retrieveStorage = () => {
@@ -19,6 +17,36 @@ const retrieveStorage = () => {
       tasksObject.counter += 1;
     });
   });
+};
+
+const dataStore = () => {
+  localStorage.setItem('data', JSON.stringify(tasksObject.taskList));
+};
+
+export const editText = () => {
+  const allTexts = document.querySelectorAll('.input_text');
+
+  const changeValue = (e) => {
+    const id = e.target.id.split('_')[0];
+    const text = document.getElementById(`${id}_text`);
+    if (e.key === 'Enter') {
+      tasksObject.taskList.forEach((element) => {
+        if (Number(id) === element.index) {
+          element.description = text.value;
+        }
+      });
+      dataStore();
+      tasks.innerHTML = '';
+      tasksObject.taskList.forEach((element) => {
+        const { index, description } = element;
+        tasksObject.display(index, description);
+        editText();
+        tasksObject.counter += 1;
+      });
+    }
+  };
+
+  allTexts[allTexts.length - 1].addEventListener('keydown', (e) => changeValue(e));
 };
 
 export { dataStore, retrieveStorage };
