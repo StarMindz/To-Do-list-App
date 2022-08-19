@@ -82,6 +82,6 @@ document.getElementById('clearlist-btn').addEventListener('click', () => {
   }));
   dataStore();
   document.location.reload;
-})
+});
 
 export { dataStore, retrieveStorage };

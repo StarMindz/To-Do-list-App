@@ -1,4 +1,5 @@
 import './index.css';
+
 import tasksObject, { dataStore, retrieveStorage, editText, getCheckers } from './modules/storage.js';
 
 const text = document.getElementById('to-do-list-input');
