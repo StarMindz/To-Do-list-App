@@ -11,7 +11,7 @@ const dataStore = () => {
 export const getCheckers = () => {
   const checkers = document.querySelectorAll('.list_checkbox');
   let check = '';
-  checkers[checkers.length - 1].addEventListener('change', (e, taskList) => {
+  checkers[checkers.length - 1].addEventListener('change', (e) => {
     const id = e.target.id.split('_')[0];
     const text = document.getElementById(`${id}_text`);
     if (text.style.textDecoration === 'line-through') {
@@ -28,7 +28,7 @@ export const getCheckers = () => {
     });
     dataStore();
   });
-}
+};
 
 // Funtion for editing tasks
 export const editText = () => {
@@ -73,19 +73,17 @@ const retrieveStorage = () => {
   });
 };
 
-document.getElementById('clearlist-btn').addEventListener('click', (e) => {
-  const lists = tasksObject.taskList
-  console.log(typeof lists);
-
+document.getElementById('clearlist-btn').addEventListener('click', () => {
+  const lists = tasksObject.taskList;
   let count = 1;
   tasksObject.taskList.filter(value => value.completed !== true);
   tasksObject.taskList = tasksObject.taskList.map((todo) => ({
-    index: count++,
+    index: count += 1,
     description: todo.description,
     completed: todo.completed,
   }));
   dataStore();
   document.location.reload;
-})
+});
 
 export { dataStore, retrieveStorage };
