@@ -3,10 +3,9 @@ class Tasks {
   constructor() {
     this.taskList = [];
     this.counter = this.taskList.length;
-    this.delcounter = 0;
   }
 
-  addTask(description, completed = 'false') {
+  addTask(description, completed) {
     const taskItem = {};
     taskItem.index = this.counter;
     taskItem.description = description;
@@ -29,9 +28,11 @@ class Tasks {
     li.setAttribute('id', `${index}_item`);
     li.innerHTML = html;
     tasks.appendChild(li);
+    if (completed === true) {
+      document.getElementById(`${index}_input`).style.textDecoration = 'line-through';
+    }
     this.edit();
     this.remove();
-    this.getCheckers();
   }
 
   edit() {
@@ -53,25 +54,12 @@ class Tasks {
       const parent = e.target.parentNode;
       const mainParent = parent.parentNode;
       const id = e.target.id.split('_')[0];
-      const localcount = id - this.delcounter;
       tasks.removeChild(mainParent);
-      this.taskList.splice(localcount, 1);
-      this.delcounter += 1;
+      this.taskList.splice(id, 1);
+      this.taskList.forEach((element, index) => {
+        element.index = index;
+      });
       this.dataLog();
-    });
-  }
-
-  getCheckers() {
-    const checkers = document.querySelectorAll('.list_checkbox');
-    checkers[checkers.length - 1].addEventListener('change', (e) => {
-      const id = e.target.id.split('_')[0];
-      this.id = id;
-      const text = document.getElementById(`${id}_text`);
-      if (text.style.textDecoration === 'line-through') {
-        text.style.textDecoration = '';
-      } else {
-        text.style.textDecoration = 'line-through';
-      }
     });
   }
 

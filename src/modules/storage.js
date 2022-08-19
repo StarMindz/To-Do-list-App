@@ -8,6 +8,28 @@ const dataStore = () => {
   localStorage.setItem('data', JSON.stringify(tasksObject.taskList));
 };
 
+export const getCheckers = () => {
+  const checkers = document.querySelectorAll('.list_checkbox');
+  let check = '';
+  checkers[checkers.length - 1].addEventListener('change', (e, taskList) => {
+    const id = e.target.id.split('_')[0];
+    const text = document.getElementById(`${id}_text`);
+    if (text.style.textDecoration === 'line-through') {
+      text.style.textDecoration = '';
+      check = false;
+    } else {
+      text.style.textDecoration = 'line-through';
+      check = true;
+    }
+    tasksObject.taskList.forEach((element) => {
+      if (Number(id) === element.index) {
+        element.completed = check;
+      }
+    });
+    dataStore();
+  });
+}
+
 // Funtion for editing tasks
 export const editText = () => {
   const allTexts = document.querySelectorAll('.input_text');
@@ -27,6 +49,7 @@ export const editText = () => {
         const { index, description } = element;
         tasksObject.display(index, description);
         editText();
+        getCheckers();
         tasksObject.counter += 1;
       });
     }
@@ -44,9 +67,25 @@ const retrieveStorage = () => {
       const { description, completed } = element;
       tasksObject.addTask(description, completed);
       editText();
+      getCheckers();
       tasksObject.counter += 1;
     });
   });
 };
+
+document.getElementById('clearlist-btn').addEventListener('click', (e) => {
+  const lists = tasksObject.taskList
+  console.log(typeof lists);
+
+  let count = 1;
+  tasksObject.taskList.filter(value => value.completed !== true);
+  tasksObject.taskList = tasksObject.taskList.map((todo) => ({
+    index: count++,
+    description: todo.description,
+    completed: todo.completed,
+  }));
+  dataStore();
+  document.location.reload;
+})
 
 export { dataStore, retrieveStorage };
