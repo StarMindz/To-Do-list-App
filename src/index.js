@@ -1,7 +1,7 @@
 import './index.css';
 
 import tasksObject, {
-  dataStore, retrieveStorage, editText, getCheckers
+  dataStore, retrieveStorage, editText, getCheckers,
 }
 from './modules/storage.js';
 
