@@ -74,16 +74,14 @@ const retrieveStorage = () => {
 };
 
 document.getElementById('clearlist-btn').addEventListener('click', () => {
-  const lists = tasksObject.taskList;
-  let count = 1;
   tasksObject.taskList.filter(value => value.completed !== true);
-  tasksObject.taskList = tasksObject.taskList.map((todo) => ({
-    index: count += 1,
+  tasksObject.taskList = tasksObject.taskList.map((todo, id) => ({
+    index: id,
     description: todo.description,
     completed: todo.completed,
   }));
   dataStore();
   document.location.reload;
-});
+})
 
 export { dataStore, retrieveStorage };
