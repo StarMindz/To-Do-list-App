@@ -5,7 +5,7 @@ class Tasks {
     this.counter = this.taskList.length;
   }
 
-  addTask(description, completed) {
+  addTask(description, completed = false) {
     const taskItem = {};
     taskItem.index = this.counter;
     taskItem.description = description;
@@ -29,7 +29,8 @@ class Tasks {
     li.innerHTML = html;
     tasks.appendChild(li);
     if (completed === true) {
-      document.getElementById(`${index}_input`).style.textDecoration = 'line-through';
+      document.getElementById(`${index}_text`).style.textDecoration = 'line-through';
+      document.getElementById(`${index}_input`).checked = true;
     }
     this.edit();
     this.remove();
