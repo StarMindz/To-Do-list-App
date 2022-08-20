@@ -5,7 +5,7 @@ import tasksObject, {
 }
 from './modules/storage.js';
 
-import clearAll from './modules/clear';
+import clearAll from './modules/clear.js';
 
 const text = document.getElementById('to-do-list-input');
 const addButton = document.getElementById('add-button');
