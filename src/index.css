@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  background-color: rgba(192, 189, 189, 0.381);
+  color: gray;
+}
+
+i {
+  opacity: 50%;
+  cursor: pointer;
+  transform: scale(1.5);
+  margin-right: 20px;
+}
+
+i:hover {
+  color: rgb(0, 0, 0);
+}
+
+.to-do-list-container {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px;
+  background-color: white;
+  margin: 0 auto;
+  max-width: 500px;
+  max-height: 80vh;
+  grid-auto-rows: auto;
+  width: 80%;
+  margin-top: 150px;
+  padding: 20px;
+}
+
+.to-do-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.164);
+}
+
+.to-do-head,
+.Add-to-do-list,
+.list-item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.164);
+}
+
+input {
+  border: none;
+  outline: none;
+  height: 50px;
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+.input_text {
+  width: 400px;
+}
+
+.Add-to-do-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.164);
+}
+
+.list_checkbox {
+  width: 18px;
+  height: 18px;
+}
+
+#clearlist-btn {
+  border: none;
+  font-size: 20px;
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  color: gray;
+  background-color: white;
+  cursor: pointer;
+}
+
+.label-section {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.no-display {
+  display: none;
+}
+
+.display {
+  display: block;
+}
+
+@media (min-width: 780px) {
+  .to-do-list-container {
+    width: 650px;
+    border: 1px solid black;
+    margin-top: 150px;
+    padding: 20px;
+  }
+}
