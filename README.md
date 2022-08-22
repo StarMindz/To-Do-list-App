@@ -13,9 +13,11 @@ This To-do-list webapp allows users to add, remove, mark as complete and edit ta
 - A lot of Coffee
 - And Chill Electronic Music
 
-## Live Demo (if available)
+## Live Demo
 
 [Coming Soon!](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
+## View Todo List 
 
 
 ## Getting Started
