@@ -17,8 +17,9 @@ This To-do-list webapp allows users to add, remove, mark as complete and edit ta
 
 [Coming Soon!](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
-## View Todo List 
+## View To-do List App
 
+  [Live Demo!](https://starmindz.github.io/To-Do-list-App/dist/)
 
 ## Getting Started
 
