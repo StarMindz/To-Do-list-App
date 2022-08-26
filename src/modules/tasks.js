@@ -23,6 +23,7 @@ class Tasks {
         <i id='${index}_icon' class='display list_icons fa-solid fa-ellipsis-vertical'></i>
         </div>
         `;
+    const tasks = document.getElementById('to-do-list');
     const li = document.createElement('li');
     li.className = 'list-item';
     li.setAttribute('id', `${index}_item`);
@@ -49,6 +50,16 @@ class Tasks {
     });
   }
 
+  delete(id) {
+    // const tasks = document.getElementById('to-do-list');
+    // const mainParent = document.getElementById(`${id}_item`)
+    // tasks.removeChild(mainParent);
+    this.taskList.splice(id, 1);
+    this.taskList.forEach((element, index) => {
+      element.index = index;
+    });
+  }
+
   remove() {
     const buttons = document.querySelectorAll('.trash_icons');
     buttons[buttons.length - 1].addEventListener('click', (e) => {
@@ -56,10 +67,7 @@ class Tasks {
       const mainParent = parent.parentNode;
       const id = e.target.id.split('_')[0];
       tasks.removeChild(mainParent);
-      this.taskList.splice(id, 1);
-      this.taskList.forEach((element, index) => {
-        element.index = index;
-      });
+      this.delete(id);
       this.dataLog();
     });
   }
