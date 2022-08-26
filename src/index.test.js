@@ -40,3 +40,31 @@ describe('Adjusting to the todo list', () => {
     expect(newTask.taskList.length).toBe(2);
   });
 });
+
+describe('Edit a todo item', () => {
+  const newTask = new Tasks();
+  test('Edit an existing todo item', () => {
+    // clear th list by making it innerHtml empty
+    const list  = document.getElementById('to-do-list');
+    list.innerHTML = '';
+
+    // Add three new tasks
+    newTask.addTask('First task');
+    newTask.addTask('Second Task');
+    newTask.addTask('Third task');
+    // Target the second task with index '1'
+    const second = document.querySelectorAll('.list-item')[1].children[1].children[0];
+    // check that the value of the second element is as created
+    expect(second.value).toBe('Second Task');
+
+    // Edit the value
+    second.value = 'Second Task Edited';
+
+    //check that the value has changed as edited
+    expect(second.value).toBe('Second Task Edited')
+
+    //Expect the number of list item to still be 1 
+    const listItems = document.querySelectorAll('.list-item');
+    expect(listItems.length).toBe(3);
+  });
+});
