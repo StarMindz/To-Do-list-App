@@ -23,6 +23,7 @@ class Tasks {
         <i id='${index}_icon' class='display list_icons fa-solid fa-ellipsis-vertical'></i>
         </div>
         `;
+    let tasks = document.getElementById('to-do-list');
     const li = document.createElement('li');
     li.className = 'list-item';
     li.setAttribute('id', `${index}_item`);
