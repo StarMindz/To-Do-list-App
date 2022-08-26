@@ -56,8 +56,8 @@ class Tasks {
     // tasks.removeChild(mainParent);
     this.taskList.splice(id, 1);
     this.taskList.forEach((element, index) => {
-        element.index = index;
-      });
+      element.index = index;
+    });
   }
 
   remove() {
@@ -67,7 +67,7 @@ class Tasks {
       const mainParent = parent.parentNode;
       const id = e.target.id.split('_')[0];
       tasks.removeChild(mainParent);
-      this.delete(id)
+      this.delete(id);
       this.dataLog();
     });
   }

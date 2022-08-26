@@ -1,7 +1,5 @@
 import Tasks from './modules/tasks.js';
 
-
-
 document.body.innerHTML = `
   <div class='to-do-list-container'>
       <div class='to-do-head'>
@@ -19,13 +17,13 @@ document.body.innerHTML = `
         />
         <i id='add-button' class='input-icon fas fa-hand-point-left'></i>
       </div>
-      <ul id='to-do-list'></ul>
+      <ul id='to-do-list'>
+      </ul>
       <button type='submit' id='clearlist-btn'>Clear all completed</button>
     </div>
 `;
 
 describe('Adjusting to the todo list', () => {
-
   const newTask = new Tasks();
 
   test('Add a new todo item', () => {
@@ -42,5 +40,5 @@ describe('Adjusting to the todo list', () => {
     newTask.delete(0);
     newTask.delete(1);
     expect(newTask.taskList.length).toBe(2);
-  })
+  });
 });
