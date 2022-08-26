@@ -25,20 +25,20 @@ document.body.innerHTML = `
 
 describe('Adjusting to the todo list', () => {
   const newTask = new Tasks();
+//Edith, you can uncomment this part below. Also delete this line of comment
+  // test('Add a new todo item', () => {
+  //   newTask.addTask(' task 1');
+  //   newTask.addTask('task 2');
+  //   newTask.addTask('task 3');
+  //   newTask.addTask('task 4');
 
-  test('Add a new todo item', () => {
-    newTask.addTask(' task 1');
-    newTask.addTask('task 2');
-    newTask.addTask('task 3');
-    newTask.addTask('task 4');
-
-    const listItems = document.querySelectorAll('.list-item');
-    expect(listItems.length).toBe(4);
-  });
-
-  test('Remove some todo item', () => {
-    newTask.delete(0);
-    newTask.delete(1);
-    expect(newTask.taskList.length).toBe(2);
-  });
+  //   const listItems = document.querySelectorAll('.list-item');
+  //   expect(listItems.length).toBe(4);
+  // });
+//Gleeny, you should uncomment this part below, also delete this line of comment once done before pushing
+  // test('Remove some todo item', () => {
+  //   newTask.delete(0);
+  //   newTask.delete(1);
+  //   expect(newTask.taskList.length).toBe(2);
+  // });
 });
