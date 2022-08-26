@@ -38,12 +38,9 @@ describe('Adjusting to the todo list', () => {
     expect(listItems.length).toBe(4);
   });
 
-  // test('Remove some todo item', () => {
-  //   newTask.delete(0);
-  //   newTask.delete(1);
-    
-
-  //   const listItems = document.querySelectorAll('.list-item');
-  //   expect(listItems.length).toBe(2);
-  // })
+  test('Remove some todo item', () => {
+    newTask.delete(0);
+    newTask.delete(1);
+    expect(newTask.taskList.length).toBe(2);
+  })
 });
