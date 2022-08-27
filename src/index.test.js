@@ -1,4 +1,5 @@
 import Tasks from './modules/tasks.js';
+import { clearAllFunction } from './modules/clear.js';
 
 document.body.innerHTML = `
   <div class='to-do-list-container'>
@@ -23,6 +24,7 @@ document.body.innerHTML = `
     </div>
 `;
 
+// Tests for add and remove functions
 describe('Adjusting to the todo list', () => {
   const newTask = new Tasks();
   test('Add a new todo item', () => {
@@ -41,10 +43,11 @@ describe('Adjusting to the todo list', () => {
   });
 });
 
+// Test for Edit functions
 describe('Edit a todo item', () => {
   const newTask = new Tasks();
   test('Edit an existing todo item', () => {
-    // clear th list by making it innerHtml empty
+    // clear the list by making it innerHtml empty
     const list  = document.getElementById('to-do-list');
     list.innerHTML = '';
 
@@ -68,3 +71,52 @@ describe('Edit a todo item', () => {
     expect(listItems.length).toBe(3);
   });
 });
+
+// Test for Clear functions
+
+describe("Functions for updating completed item", () => {
+  test('Test if checked items are updated as completed = true', () => {
+    const newTask = new Tasks();
+    // clear the list by making it innerHtml empty
+    const list  = document.getElementById('to-do-list');
+    list.innerHTML = '';
+
+    // Add two new tasks
+    newTask.addTask('First Item');
+    newTask.addTask('Second Item');
+    
+    // Get first item checkbox
+    const firstcheckbox = document.querySelectorAll('.list-item')[0].children[0];
+    expect(firstcheckbox.checked).toBe(false);  //Checkbox is expected to be false by default
+    firstcheckbox.checked = true;
+    expect(firstcheckbox.checked).toBe(true);
+  })
+
+  // Test to check that complted tasks are removed fromthe list
+  test('Testing function for clearing all complted tasks', () => {
+    const newTask = new Tasks();
+    // clear the list by making it innerHtml empty
+    const list  = document.getElementById('to-do-list');
+    list.innerHTML = '';
+
+    // Add Four new tasks
+    newTask.addTask('First uncompleted');
+    newTask.addTask('Second uncompleted');
+    newTask.addTask('Third uncompleted');
+    newTask.addTask('Fourth uncompleted');
+
+    expect(newTask.taskList.length).toBe(4);
+
+    // Get first and third item checkbox
+    const firstcheckbox = document.querySelectorAll('.list-item')[0].children[0];
+    const thirdcheckbox = document.querySelectorAll('.list-item')[2].children[0];
+    firstcheckbox.checked = true;
+    thirdcheckbox.checked = true;
+    newTask.taskList[0].completed = true;
+    newTask.taskList[2].completed = true;
+    newTask.taskList = clearAllFunction(newTask.taskList);
+    expect(firstcheckbox.checked).toBe(true);
+    expect(thirdcheckbox.checked).toBe(true);
+    expect(newTask.taskList.length).toBe(2);
+  })
+})

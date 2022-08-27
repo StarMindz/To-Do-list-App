@@ -3,14 +3,19 @@ import tasksObject, {
 }
 from './storage.js';
 
+export const clearAllFunction = (obj) => {
+  obj = obj.filter((value) => value.completed !== true);
+  obj.forEach((todo, id) => {
+    todo.index = id;
+  });
+  return obj
+}
+
 const clearAll = () => {
   const clear = document.getElementById('clearlist-btn');
 
   clear.addEventListener('click', () => {
-    tasksObject.taskList = tasksObject.taskList.filter((value) => value.completed !== true);
-    tasksObject.taskList.forEach((todo, id) => {
-      todo.index = id;
-    });
+    tasksObject.taskList = clearAllFunction(tasksObject.taskList);
     dataStore();
     document.location.reload();
   });
