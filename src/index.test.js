@@ -48,7 +48,7 @@ describe('Edit a todo item', () => {
   const newTask = new Tasks();
   test('Edit an existing todo item', () => {
     // clear the list by making it innerHtml empty
-    const list  = document.getElementById('to-do-list');
+    const list = document.getElementById('to-do-list');
     list.innerHTML = '';
 
     // Add three new tasks
@@ -63,10 +63,10 @@ describe('Edit a todo item', () => {
     // Edit the value
     second.value = 'Second Task Edited';
 
-    //check that the value has changed as edited
-    expect(second.value).toBe('Second Task Edited')
+    // check that the value has changed as edited
+    expect(second.value).toBe('Second Task Edited');
 
-    //Expect the number of list item to still be 1 
+    // Expect the number of list item to still be 1
     const listItems = document.querySelectorAll('.list-item');
     expect(listItems.length).toBe(3);
   });
@@ -74,29 +74,29 @@ describe('Edit a todo item', () => {
 
 // Test for Clear functions
 
-describe("Functions for updating completed item", () => {
+describe('Functions for updating completed item', () => {
   test('Test if checked items are updated as completed = true', () => {
     const newTask = new Tasks();
     // clear the list by making it innerHtml empty
-    const list  = document.getElementById('to-do-list');
+    const list = document.getElementById('to-do-list');
     list.innerHTML = '';
 
     // Add two new tasks
     newTask.addTask('First Item');
     newTask.addTask('Second Item');
-    
+  
     // Get first item checkbox
     const firstcheckbox = document.querySelectorAll('.list-item')[0].children[0];
-    expect(firstcheckbox.checked).toBe(false);  //Checkbox is expected to be false by default
+    expect(firstcheckbox.checked).toBe(false); // Checkbox is expected to be false by default
     firstcheckbox.checked = true;
     expect(firstcheckbox.checked).toBe(true);
-  })
+  });
 
-  // Test to check that complted tasks are removed fromthe list
+  // Test to check that completed tasks are removed from the list
   test('Testing function for clearing all complted tasks', () => {
     const newTask = new Tasks();
     // clear the list by making it innerHtml empty
-    const list  = document.getElementById('to-do-list');
+    const list = document.getElementById('to-do-list');
     list.innerHTML = '';
 
     // Add Four new tasks
@@ -110,6 +110,7 @@ describe("Functions for updating completed item", () => {
     // Get first and third item checkbox
     const firstcheckbox = document.querySelectorAll('.list-item')[0].children[0];
     const thirdcheckbox = document.querySelectorAll('.list-item')[2].children[0];
+
     firstcheckbox.checked = true;
     thirdcheckbox.checked = true;
     newTask.taskList[0].completed = true;
@@ -118,5 +119,5 @@ describe("Functions for updating completed item", () => {
     expect(firstcheckbox.checked).toBe(true);
     expect(thirdcheckbox.checked).toBe(true);
     expect(newTask.taskList.length).toBe(2);
-  })
-})
+  });
+});
