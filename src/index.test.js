@@ -90,7 +90,7 @@ describe('Functions for updating completed item', () => {
     firstcheckbox.checked = true;
     expect(firstcheckbox.checked).toBe(true);
   });
-  
+
   // Test to check that completed tasks are removed from the list
   test('Testing function for clearing all complted tasks', () => {
     const newTask = new Tasks();
