@@ -84,7 +84,7 @@ describe('Functions for updating completed item', () => {
     // Add two new tasks
     newTask.addTask('First Item');
     newTask.addTask('Second Item');
-  
+
     // Get first item checkbox
     const firstcheckbox = document.querySelectorAll('.list-item')[0].children[0];
     expect(firstcheckbox.checked).toBe(false); // Checkbox is expected to be false by default

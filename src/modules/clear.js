@@ -8,8 +8,8 @@ export const clearAllFunction = (obj) => {
   obj.forEach((todo, id) => {
     todo.index = id;
   });
-  return obj
-}
+  return obj;
+};
 
 const clearAll = () => {
   const clear = document.getElementById('clearlist-btn');
