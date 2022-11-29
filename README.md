@@ -2,7 +2,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 In this project, I built a simple HTML list of To Do tasks. This simple web page was built using webpack and served by a webpack dev server
 
-> Description the project.
+> Description of the project.
 This To-do-list webapp allows users to add, remove, mark as complete and edit task using JavaScript objects and arrays, I hope that you enjoy using it as I did building it.
 
 ## Built With
@@ -13,11 +13,11 @@ This To-do-list webapp allows users to add, remove, mark as complete and edit ta
 - A lot of Coffee
 - And Chill Electronic Music
 
-## Live Demo
+## Video Demo
 
 [Coming Soon!](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
-## View To-do List App
+## Live Demo
 
   [Live Demo!](https://starmindz.github.io/To-Do-list-App/dist/)
 
@@ -55,7 +55,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- To all Tomorrowland performers that give me music while coding.
+- To all Tomorrowland performers that whose beautiful music made coding this project more fun
 
 ## 📝 License
 
